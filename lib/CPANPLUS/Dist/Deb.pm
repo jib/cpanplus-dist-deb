@@ -3,9 +3,8 @@ package CPANPLUS::Dist::Deb;
 use strict;
 use vars    qw[@ISA $VERSION];
 @ISA =      qw[CPANPLUS::Dist];
-$VERSION =  '0.11_01';
+$VERSION =  '0.12';
 
-use CPANPLUS::inc;
 use CPANPLUS::Error;
 use CPANPLUS::Internals::Constants;
 use CPANPLUS::Dist::Deb::Constants;
@@ -69,8 +68,8 @@ CPANPLUS::Dist::Deb
 
     
     ### using the commandline tool
-    cpan2dist -f CPANPLUS::Dist::Deb Some::Module
-    
+    cpan2dist --format CPANPLUS::Dist::Deb Some::Module    
+
 =head1 DESCRIPTION
 
 C<CPANPLUS::Dist::Deb> is a distribution class to create C<debian>
