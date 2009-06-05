@@ -51,15 +51,16 @@ BEGIN {
     
     ### install prefixes for files -- do not hardcode, as we may not be
     ### working with debians stock perl
-    my $pref = $Config{'installsitelib'};
-    my $arch = $Config{'installsitearch'};
-    my $man3 = $Config{'installsiteman3dir'};
-    my $bin  = $Config{'installsitescript'};
+    my $pref    = $Config{'installsitelib'};
+    my $arch    = $Config{'installsitearch'};
+    my $man3    = $Config{'installsiteman3dir'};
+    my $man3ext = $Config{'man3ext'};
+    my $bin     = $Config{'installsitescript'};
     
     $CONTENTS = {
         xs  => 
             [       # ones we need
-                [   $man3 . q[/Foo::Bar.3pm],
+                [   $man3 . qq[/Foo::Bar.$man3ext],
                     $arch . q[/Foo/Bar.pm],
                     $arch . q[/auto/Foo/Bar/Bar.bs],
                     $arch . q[/auto/Foo/Bar/Bar.so],
@@ -72,7 +73,7 @@ BEGIN {
             ],
         noxs => 
             [       # ones we need
-                [   $man3 . q[/Foo::Bar.3pm],
+                [   $man3 . qq[/Foo::Bar.$man3ext],
                     $pref . q[/Foo/Bar.pm],
                     $bin  . q[/foobar.pl],
                 ],

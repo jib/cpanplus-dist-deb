@@ -102,9 +102,13 @@ if( @ARGV ) {
                 my ($need) = @{$CONTENTS->{$dir}};
                 my $to_skip = 3 + 2 * scalar @$need;
                 
-                skip "Can not (un)install -- no superuser privileges", 
-                    $to_skip if ($> and not 
-                                 $CB->configure_object->get_program('sudo')); 
+                skip "Cannot (un)install -- no superuser privileges",
+                    $to_skip if (
+                        $> && ! $CB->configure_object->get_program('sudo')
+                    );
+
+                skip "Cannot (un)install -- not using /usr/bin/perl",
+                    $to_skip unless $^X eq '/usr/bin/perl';
             
                 ok( $dist->install,         "   Dist installed" );
             
