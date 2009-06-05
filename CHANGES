@@ -1,3 +1,8 @@
+Changes for 0.XX
+================================================
+*   Remove several hardcoded Debian-specific assumptions, like
+    '/usr/bin/perl'. (hdp)
+
 Changes for 0.12        Fri May  8 12:35:57 2009
 ================================================
 *   We were using an internal deprecated module from CPANPLUS 
