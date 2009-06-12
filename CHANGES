@@ -2,6 +2,8 @@ Changes for 0.XX
 ================================================
 *   Remove several hardcoded Debian-specific assumptions, like
     '/usr/bin/perl'. (hdp)
+*   Never declare a prereq lower than one a distribution declares, even if
+    we're possibly declaring a higher one. (hdp)
 
 Changes for 0.12        Fri May  8 12:35:57 2009
 ================================================

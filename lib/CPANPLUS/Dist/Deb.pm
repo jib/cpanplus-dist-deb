@@ -476,6 +476,8 @@ sub prepare {
                 
                 ### we need a certain version
                 if( $prereqs->{$prereq} ) {
+                    my $prereq_version =
+                        eval $prereqs->{$prereq} || $prereqs->{$prereq};
 
                     ### 2 scenarios -- either you have a previously
                     ### installed version, or you don't
@@ -507,6 +509,10 @@ sub prepare {
                     } else {
                         $version = $obj->package_version;
                     }
+                    ### never use a version less than the stated prerequisite;
+                    ### this can be the case if, for example, we are building
+                    ### debs and using --skiptest
+                    $version = $prereq_version if $version < $prereq_version;
                 }
                 
                 push @depends, [$obj, $version];
