@@ -597,7 +597,7 @@ install-stamp: build-stamp
 	dh_testroot
 	dh_clean -d -k
 
-	\$(PERL) \$(BUILD) install destdir=\$(TMP)
+	\$(PERL) \$(BUILD) install --destdir=\$(TMP)
 	-find . -type f | grep '/perllocal.pod\$\$' | xargs rm -f
 
 	# due to a bug in M::B, the .packlist file is written to
@@ -698,7 +698,7 @@ install-stamp:
 	dh_clean -d -k
 
 	# Add here commands to install the package into debian/tmp.
-	\$(PERL) \$(BUILD) install destdir=\$(TMP)
+	\$(PERL) \$(BUILD) install --destdir=\$(TMP)
 	-find . -type f | grep '/perllocal.pod\$\$' | xargs rm -f
 
 	# due to a bug in M::B, the .packlist file is written to
